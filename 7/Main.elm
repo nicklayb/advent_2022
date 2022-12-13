@@ -3,7 +3,7 @@ module Main exposing (..)
 import Console
 import Debug
 import Platform
-import RockPaperScissors
+import FileSystem
 
 type alias Model = { input: String }
 
@@ -17,8 +17,9 @@ update msg model =
 run : String -> String
 run input =
     input
-    |> RockPaperScissors.totalGuessed
-    |> String.fromInt
+    |> FileSystem.parse
+    |> Debug.log "FS"
+    |> (\_ -> "")
 
 start : Cmd Msg
 start =

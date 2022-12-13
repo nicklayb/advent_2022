@@ -1,9 +1,9 @@
 module Main exposing (..)
 
+import Cargo
 import Console
 import Debug
 import Platform
-import RockPaperScissors
 
 type alias Model = { input: String }
 
@@ -15,10 +15,8 @@ update msg model =
     Run -> (model, Console.log (run model.input))
 
 run : String -> String
-run input =
-    input
-    |> RockPaperScissors.totalGuessed
-    |> String.fromInt
+run =
+    Cargo.move
 
 start : Cmd Msg
 start =

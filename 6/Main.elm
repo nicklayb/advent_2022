@@ -3,7 +3,7 @@ module Main exposing (..)
 import Console
 import Debug
 import Platform
-import RockPaperScissors
+import PacketMarker
 
 type alias Model = { input: String }
 
@@ -17,7 +17,8 @@ update msg model =
 run : String -> String
 run input =
     input
-    |> RockPaperScissors.totalGuessed
+    |> PacketMarker.charsBeforeMarker
+    |> List.length
     |> String.fromInt
 
 start : Cmd Msg
